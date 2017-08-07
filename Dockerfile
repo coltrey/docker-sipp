@@ -5,8 +5,9 @@ RUN apt-get update && apt-get install -y \
 	libncurses5-dev \
 	libpcap-dev \
 	libsctp-dev \
-	libssl-dev
-
+	libssl-dev \
+	vim
+	
 WORKDIR /
 
 ADD https://github.com/SIPp/sipp/releases/download/v3.5.1/sipp-3.5.1.tar.gz /
