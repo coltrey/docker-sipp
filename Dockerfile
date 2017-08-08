@@ -19,5 +19,3 @@ RUN gem install sippy_cup
 
 WORKDIR /
 RUN rm -rf v3.4.1.tar sipp-3.4.1
-
-# Can run on the SBC: docker run -v /tls:/tls -p 80:8080 585902692734.dkr.ecr.us-east-1.amazonaws.com/sipp:master
