@@ -15,7 +15,8 @@ RUN tar -zxvf sipp-3.5.1.tar.gz
 
 WORKDIR /sipp-3.5.1
 RUN ls -l && ./configure --with-pcap --with-sctp --with-openssl --with-rtpstream && make install
-RUN gem install sippy_cup
+RUN gem install packetfu:1.1.11
+RUN git clone https://github.com/mojolingo/sippy_cup.git && cd sippy_cup && bundle install
 
 WORKDIR /
 RUN rm -rf v3.4.1.tar sipp-3.4.1
