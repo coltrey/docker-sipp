@@ -6,8 +6,10 @@ RUN apt-get update && apt-get install -y \
 	libpcap-dev \
 	libsctp-dev \
 	libssl-dev \
+	python \
+	python-pip \
 	vim
-	
+
 WORKDIR /
 
 ADD https://github.com/SIPp/sipp/releases/download/v3.5.1/sipp-3.5.1.tar.gz /
