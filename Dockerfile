@@ -4,6 +4,6 @@ RUN gem install packetfu:1.1.11
 RUN git clone https://github.com/mojolingo/sippy_cup.git && cd sippy_cup && bundle install
 
 FROM ruby:2.4.3-alpine
-apk update && apk add sipp
+RUN apk update && apk add sipp
 
 COPY --from=build /usr/local/bundle/ /usr/local/bundle/
