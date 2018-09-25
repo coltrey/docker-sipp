@@ -23,5 +23,5 @@ RUN git clone https://github.com/mojolingo/sippy_cup.git && cd sippy_cup && bund
 
 FROM ruby:2.4.3-alpine
 COPY --from=build /sipp-3.5.1 /sipp-3.5.1
-COPY --from=build /usr/lcaol/bin/sipp /usr/local/bin/sipp
+COPY --from=build /usr/local/bin/sipp /usr/local/bin/sipp
 COPY --from=build /usr/local/bundle/ /usr/local/bundle/
