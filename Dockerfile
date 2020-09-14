@@ -2,6 +2,9 @@ FROM ruby:2.4.3-jessie
 ENV DEBIAN_FRONTEND noninteractive
 RUN apt-get update && apt-get install -y \
 	build-essential \
+	gsl-bin \
+	libgsl0-dev \
+	libgsl0ldbl \
 	libncurses5-dev \
 	libpcap-dev \
 	libsctp-dev \
@@ -16,7 +19,7 @@ ADD https://github.com/SIPp/sipp/releases/download/v3.6.0/sipp-3.6.0.tar.gz /
 RUN tar -zxvf sipp-3.6.0.tar.gz
 
 WORKDIR /sipp-3.6.0
-RUN ls -l && ./configure --with-pcap --with-sctp --with-openssl --with-rtpstream && make install
+RUN ls -l && ./configure --with-pcap --with-sctp --with-openssl --with-rtpstream --with-gsl && make install
 RUN gem install packetfu:1.1.11
 RUN git clone https://github.com/mojolingo/sippy_cup.git && cd sippy_cup && bundle install
 
