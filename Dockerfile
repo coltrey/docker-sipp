@@ -15,13 +15,13 @@ RUN apt-get update && apt-get install -y \
 
 WORKDIR /
 
-ADD https://github.com/SIPp/sipp/releases/download/v3.6.0/sipp-3.6.0.tar.gz /
-RUN tar -zxvf sipp-3.6.0.tar.gz
+ADD https://github.com/SIPp/sipp/releases/download/v3.6.1/sipp-3.6.1.tar.gz /
+RUN tar -zxvf sipp-3.6.1.tar.gz
 
-WORKDIR /sipp-3.6.0
-RUN ls -l && ./configure --with-pcap --with-sctp --with-openssl --with-rtpstream --with-gsl && make install
+WORKDIR /sipp-3.6.1
+RUN ls -l && cmake . -DUSE_GSL=1 -DUSE_PCAP=1 -DUSE_SSL=1 -DUSE_SCTP=1 install
 RUN gem install packetfu:1.1.11
 RUN git clone https://github.com/mojolingo/sippy_cup.git && cd sippy_cup && bundle install
 
 WORKDIR /
-RUN rm -rf sipp-3.6.0.tar.gz sipp-3.6.0
+RUN rm -rf sipp-3.6.1.tar.gz sipp-3.6.1
