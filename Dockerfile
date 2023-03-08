@@ -1,7 +1,7 @@
 FROM ruby:3.1.2-bullseye
 ENV DEBIAN_FRONTEND noninteractive
 RUN apt-get update && apt-get install -y \
-        awsclki \
+        awscli \
         build-essential \
         cmake \
         gsl-bin \
