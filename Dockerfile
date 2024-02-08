@@ -19,9 +19,9 @@ RUN apt-get update && apt-get install -y \
 WORKDIR /
 
 ADD https://github.com/SIPp/sipp/releases/download/v3.7.2/sipp-3.7.2.tar.gz /
-RUN tar -zxvf sipp-3.6.2.tar.gz
+RUN tar -zxvf sipp-3.7.2.tar.gz
 
-WORKDIR /sipp-3.6.1
+WORKDIR /sipp-3.7.2
 RUN ls -l && ./build.sh --full && make install
 RUN gem install packetfu:1.1.11
 RUN git clone https://github.com/mojolingo/sippy_cup.git && cd sippy_cup && bundle install
